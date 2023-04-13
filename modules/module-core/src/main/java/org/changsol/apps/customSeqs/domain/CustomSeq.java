@@ -24,7 +24,7 @@ import org.changsol.utils.bases.domain.ChangSolBaseDomainIdentity;
 @Builder
 @Getter
 @Table(
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"type", "check_dt"})}
+	uniqueConstraints = {@UniqueConstraint(columnNames = {"type", "checkDt"})}
 )
 public class CustomSeq extends ChangSolBaseDomainIdentity {
 
@@ -38,11 +38,13 @@ public class CustomSeq extends ChangSolBaseDomainIdentity {
 	/**
 	 * 채번 기준일자
 	 */
+	@NotNull
 	private LocalDate checkDt;
 
 	/**
 	 * 채번 값
 	 */
+	@NotNull
 	private Long seq;
 
 	/**
