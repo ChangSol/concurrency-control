@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.changsol.apps.customSeqs.enums.CustomSeqType;
 import org.changsol.utils.bases.domain.ChangSolBaseDomainIdentity;
 
 /**
@@ -27,6 +26,13 @@ import org.changsol.utils.bases.domain.ChangSolBaseDomainIdentity;
 	uniqueConstraints = {@UniqueConstraint(columnNames = {"type", "checkDt"})}
 )
 public class CustomSeq extends ChangSolBaseDomainIdentity {
+	/**
+	 * 채번 타입 ENUM
+	 */
+	public enum CustomSeqType {
+		ORDER, // 주문 번호 채번
+		PAY // 결제 번호 채번
+	}
 
 	/**
 	 * 채번 타입

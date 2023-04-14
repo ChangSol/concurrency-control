@@ -3,7 +3,7 @@ package org.changsol.apps.seqs.service;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.changsol.apps.customSeqs.enums.CustomSeqType;
+import org.changsol.apps.customSeqs.domain.CustomSeq;
 import org.changsol.apps.customSeqs.service.CustomSeqService;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class SeqService {
 	 */
 	public String getOrderSeq() {
 		LocalDate nowDt = LocalDate.now();
-		long seq = customSeqService.createCustomSeq(CustomSeqType.ORDER, LocalDate.of(nowDt.getYear(), 1, 1));
+		long seq = customSeqService.createCustomSeq(CustomSeq.CustomSeqType.ORDER, LocalDate.of(nowDt.getYear(), 1, 1));
 		return String.format("ORD-%d-%s", nowDt.getYear(), StringUtils.leftPad(String.valueOf(seq), 5, "0"));
 	}
 }

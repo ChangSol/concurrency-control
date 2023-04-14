@@ -3,7 +3,6 @@ package org.changsol.apps.customSeqs.service;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.changsol.apps.customSeqs.domain.CustomSeq;
-import org.changsol.apps.customSeqs.enums.CustomSeqType;
 import org.changsol.apps.customSeqs.repository.CustomSeqRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +23,7 @@ public class CustomSeqService {
 	 * @return 채번 값
 	 */
 	@Transactional
-	public long createCustomSeq(CustomSeqType type, LocalDate checkDt) {
+	public long createCustomSeq(CustomSeq.CustomSeqType type, LocalDate checkDt) {
 		// 채번 데이터 GET
 		CustomSeq customSeq = customSeqRepository.findByTypeAndCheckDt(type, checkDt).orElse(CustomSeq.builder()
 																									  .type(type)
